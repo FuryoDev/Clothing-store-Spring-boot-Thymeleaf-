@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="user-page" th:object="${user}">
+        <div class="user-info-container">
+            <h1>Mon Compte</h1>
+            <button class="user-btn"><a th:href="@{/logout}">Se déconnecter</a></button>
+            <br>
+            <h1>Détails du compte</h1>
+            <p class="user-parag" th:text="${user.name}"></p>
+            <p class="user-parag" th:text="${user.lastName}"></p>
+            <!--            <p class="user-parag" th:text="${user.birthDay}"></p>-->
+            <p class="user-parag" th:text="${#dates.format(user.birthDay, 'dd/MMM/yyyy')}"></p>
+            <button class="user-btn"><a th:href="@{/user/editUserForm}">Edit info</a></button>
+            <br>
+            <button class="user-btn"><a th:href="@{/user/addresses}">Voir les adresses</a></button>
+        </div>
+        <div class="user-order-container">
+            <table class="second-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Dâte</th>
+                    <th>Paiement</th>
+                    <th>Livraison</th>
+                    <th>Statut</th>
+                    <th>Action</th>
+                </tr>
+                <tr th:each="o:${orders}">
+                    <td th:text="${o.orderId}"></td>
+                    <td th:text="${#dates.format(o.dateOfPurchase, 'dd/MMM/yyyy')}"></td>
+                    <td th:text="${o.paymentType?.name} ?: 'Ce moyen de paiment a été supprimé'"></td>
+                    <td th:text="${o.deliveryMethod?.name} ?: 'Ce moyen de livraison a été supprimé'"></td>
+                    <td>
+                        <p th:if="${!o.isSentToDelivery}">En préparation</p>
+                        <p th:if="${o.isSentToDelivery}">Envoyée</p>
+                    </td>
+                    <td><a th:href="@{/user/order-page(id=${o.orderId})}">Consulter</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

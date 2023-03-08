@@ -1,0 +1,29 @@
+.user-page {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info-container {
+    width: 30%;
+    color: #1f325b;
+}
+
+.user-order-container {
+    width: 65%;
+}
+
+.user-parag {
+    line-height: 1.7;
+    font-size: 17px;
+    font-weight: 400;
+    color: #1f325b;
+    padding-bottom: 0px;
+}
+
+.user-btn {
+    width: 40%;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 10px;
+}

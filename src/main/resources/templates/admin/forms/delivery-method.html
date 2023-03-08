@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="">
+        <h1>Formulaire Livraison</h1>
+        <h3 th:text="${message}"></h3>
+        <div class="">
+            <form th:action="@{/admin/saveDeliveryMethod}" method="post" th:object="${deliveryMethod}" class="">
+                <input type="hidden" th:field="*{deliveryMethodId}">
+                <input id="name" name="name" type="text" th:field="*{name}" class="" placeholder="Delivery Method name">
+                <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                <button type="submit"> Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+.index {
+    text-align: center;
+}
+
+.banner {
+    padding-bottom: 40px;
+
+}
+
+.index-banner {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.banner-title {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    font-size: 65px;
+}
+
+.new-prod-container {
+    width: 65%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}

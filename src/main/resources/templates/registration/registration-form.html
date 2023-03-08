@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="login-page">
+        <div class="login-container">
+            <form th:action="@{/register}" th:object="${user}" method="post" class="login-form">
+                <h1 class="login-title">Inscription</h1>
+                <input th:field="*{name}" type="text" placeholder="name" required autofocus="autofocus">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                <input th:field="*{lastName}" type="text" placeholder="lastName" required>
+                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+                <input th:field="*{mail}" type="text" placeholder="Email" required>
+                <span th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></span>
+                <input th:field="*{password}" type="password" placeholder="Mot de passe" required>
+                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                <input th:field="*{birthDay}" type="date" required>
+                <span th:if="${#fields.hasErrors('birthDay')}" th:errors="*{birthDay}" required></span>
+                <button class="login-btn" type="submit">S'inscrire</button>
+                <a th:href="@{/login-form}"><span class="login-span">Vous êtes déjà client chez nous ?</span></a>
+            </form>
+        </div>
+        <div class="images-show">
+            <img th:src="@{/images/sketch.webp}" class="image-reg">
+        </div>
+    </div>
+</div>
+</body>
+</html>

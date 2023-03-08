@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      style="overflow-x: hidden"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    <script type="text/javascript" th:src="@{/js/actions.js}"></script>-->
+    <script type="text/javascript" th:src="@{/js/actions.js}"></script>
+
+
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+    <!--    <link th:href="@{/css/header.css}" rel="stylesheet">-->
+        <link th:href="@{/css/footer.css}" rel="stylesheet">
+    <link th:href="@{/css/shopping-section/showcase-page.css}" rel="stylesheet">
+    <link th:href="@{/css/shopping-section/product-page.css}" rel="stylesheet">
+    <link th:href="@{/css/admin-section/admin-index.css}" rel="stylesheet">
+    <link th:href="@{/css/admin-section/admin-tables.css}" rel="stylesheet">
+    <link th:href="@{/css/user-section/login-subscription.css}" rel="stylesheet">
+    <link th:href="@{/css/shopping-section/cart-page.css}" rel="stylesheet">
+    <link th:href="@{/css/shopping-section/checkout-page.css}" rel="stylesheet">
+    <link th:href="@{/css/user-section/user-dashboard.css}" rel="stylesheet">
+    <link th:href="@{/css/user-section/addresses-page.css}" rel="stylesheet">
+    <link th:href="@{/css/user-section/address-form.css}" rel="stylesheet">
+    <link th:href="@{/css/user-section/order-page.css}" rel="stylesheet">
+    <link th:href="@{/css/admin-section/stock-form.css}" rel="stylesheet">
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+<header th:replace="header :: myHeader"></header>
+<div layout:fragment="content" class="layout">
+
+</div>
+<footer th:replace="footer :: footer"></footer>
+</body>
+</html>

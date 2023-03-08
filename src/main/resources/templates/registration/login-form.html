@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="login-page">
+        <div class="login-container">
+            <form th:action="@{/login-form}" method="post" class="login-form">
+                <h1 class="login-title">Connexion</h1>
+                <input type="text" placeholder="mail" name="username">
+                <input type="password" placeholder="password" name="password">
+                <button class="login-btn" type="submit">Se connecter</button>
+                <a th:href="@{/registration-form}"><span class="login-span">Vous n'êtes pas encore client ?</span></a>
+            </form>
+        </div>
+        <div class="images-show">
+            <img th:src="@{/images/transp-sketch.png}" class="image-login">
+        </div>
+    </div>
+</div>
+</body>
+</html>

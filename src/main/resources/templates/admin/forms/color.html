@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="">
+        <h1>Formulaire Couleur</h1>
+        <h3 th:text="${message}"></h3>
+        <div class="">
+            <form th:action="@{/admin/saveColor}" method="post" th:object="${color}" class="">
+                <input type="hidden" th:field="*{colorId}">
+                <input id="color" name="color" type="text" th:field="*{name}" class="" placeholder="Color name">
+                <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                <label for="color">Code couleur</label>
+                <input type="color" th:field="*{colorCode}" class="">
+                <span class="error" th:if="${#fields.hasErrors('colorCode')}" th:errors="*{colorCode}"></span>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

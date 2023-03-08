@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Admin Menu</h1>
+    <div class="menu-display">
+        <div class="menu">
+            <a class="menu-link" th:href="@{/admin/product-admin}">
+                <h2>Products</h2>
+                <div class="menu-img">
+                    <img th:src="@{/images/admin-index/clothes.jpg}" class="menu-img-resized">
+                </div>
+            </a>
+        </div>
+        <div class="menu">
+            <a class="menu-link" th:href="@{/admin/cat-type-col-admin}">
+                <h2>Categories, Types & Colors</h2>
+                <div class="menu-img">
+                    <img th:src="@{/images/admin-index/stock.jpg}" class="menu-img-resized">
+                </div>
+            </a>
+        </div>
+        <div class="menu">
+            <a class="menu-link" th:href="@{/admin/stock-admin}">
+                <h2>Stocks</h2>
+                <div class="menu-img">
+                    <img th:src="@{/images/admin-index/category.jpg}" class="menu-img-resized">
+                </div>
+            </a>
+        </div>
+        <div class="menu">
+            <a class="menu-link" th:href="@{/admin/del-pay-count-admin}">
+                <h2>Delivery, Country, Payment.</h2>
+                <div class="menu-img">
+                    <img th:src="@{/images/admin-index/shipping.jpg}" class="menu-img-resized">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

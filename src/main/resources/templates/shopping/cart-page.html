@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="cart">
+        <div class="empty-cart" th:if="${cart.items.empty}">
+            <img th:src="@{/images/empty-cart.png}" alt="">
+        </div>
+
+        <div th:object="${cart}" class="cart-content" th:if="${!cart.items.empty}">
+            <h3 th:text="${stockMessage}"></h3>
+            <table class="second-table">
+                <tr>
+                    <th class="cart-th"></th>
+                    <th class="cart-th">Name</th>
+                    <th class="cart-th">Price</th>
+                    <th class="cart-th">Total</th>
+                </tr>
+                <tr th:each="ci:${cart.items}" class="cart-item-details">
+                    <td class="cart-td">
+                        <img th:src="@{${ci.product.imagePath}}" class="cart-item-img">
+                    </td>
+                    <td class="cart-td">
+                        <p th:text="${ci.product.name}"></p>
+                        <p th:text="${ci.size}"></p>
+                        <p th:text="${ci.quantity}"></p>
+                        <a th:href="@{/changeItemQuantity(id=${ci.cartItemId}, amount = '1')}"><p class="spec-icon">+</p></a>
+                        <a th:href="@{/changeItemQuantity(id=${ci.cartItemId}, amount = '-1')}"><p class="spec-icon">-</p></a>
+                        <a th:href="@{/removeFromCart(id=${ci.cartItemId})}"><p class="spec-icon">x</p></a>
+                    </td>
+                    <td class="cart-td">
+                        <p th:text="${ci.product.price} + ' €'"></p>
+                    </td>
+                    <td class="cart-td">
+                        <p th:text="${ci.totalPrice} + ' €'"></p>
+                    </td>
+                <tr class="hrz-line">
+                    <td></td>
+                </tr>
+                </tr>
+            </table>
+            <div class="total-container">
+                <h3 class="total" th:text="'Total: ' + ${cart.total} + ' €'"></h3>
+                <button type="submit" class="checkout-btn"><a th:href="@{/user/checkout-page(id=${cart.cartId})}">Checkout</a>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

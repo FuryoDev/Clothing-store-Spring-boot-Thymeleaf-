@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="address-header">
+        <h1>La page des adresses</h1>
+        <button class="create-add-btn"><a th:href="@{/user/address-form}">Create</a></button>
+    </div>
+    <div class="address-page-container">
+        <div class="card address-card" th:each="a:${addressList}">
+            <h3>Adresse n°1</h3>
+            <p class="address-parag" th:text="${a.name}"></p><br>
+            <p class="address-parag" th:text="${a.zipCode}"></p><br>
+            <p class="address-parag" th:text="${a.country?.name}"></p></p>
+            <button class="address-btn"><a th:href="@{/user/address-form(id=${a.addressId})}">Modifier</a></button>
+            <button class="address-btn"><a th:href="@{/user/deleteAddress(id=${a.addressId})}">Supprimer</a></button>
+        </div>
+    </div>
+    <!--  <div class="" th:each="a:${addressList}">-->
+
+</div>
+</div>
+</body>
+</html>

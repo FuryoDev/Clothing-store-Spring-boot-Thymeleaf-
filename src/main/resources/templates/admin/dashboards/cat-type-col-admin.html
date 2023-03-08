@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>ADMIN CATEGORIE</h1>
+    <h3 th:text="${message}"></h3>
+    <div class="admin-page-container">
+        <div class="tables-container">
+            <div class="tables-content shared">
+                <div class="table-header">
+                    <h2>Categories</h2>
+                    <button class="create-btn">
+                        <a th:href="@{/admin/categoryForm(id=null)}">Créer</a>
+                    </button>
+                </div>
+                <div class="" th:if="${categoryList.empty}">
+                    <p class = "no-data">NO DATA IN HERE</p>
+                </div>
+                <table th:if="${!categoryList.empty}" class="second-table">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr th:each="c:${categoryList}">
+                        <td th:text="${c.name}"></td>
+                        <td>
+                            <a th:href="@{/admin/categoryForm(id=${c.categoryId})}">Edit</a>
+                            <a th:href="@{/admin/deleteCategory(id=${c.categoryId})}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tables-content shared">
+                <div class="table-header">
+                    <h2>Type d'articles</h2>
+                    <button class="create-btn"><a th:href="@{/admin/typeProductForm(id=null)}">Créer</a></button>
+                </div>
+                <div class="" th:if="${typeProductList.empty}">
+                    <p class = "no-data">NO DATA IN HERE</p>
+                </div>
+                <table class="second-table" th:if="${!typeProductList.empty}">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr th:each="t:${typeProductList}">
+                        <td th:text="${t.name}"></td>
+                        <td>
+                            <a th:href="@{/admin/typeProductForm(id=${t.typeProductId})}">Edit</a>
+                            <a th:href="@{/admin/deleteTypeProduct(id=${t.typeProductId})}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tables-content shared">
+                <div class="table-header">
+                    <h2>Couleurs</h2>
+                    <button class="create-btn"><a th:href="@{/admin/colorForm(id=null)}">Créer</a></button>
+                </div>
+                <div class="" th:if="${colorList.empty}">
+                    <p class = "no-data">NO DATA IN HERE</p>
+                </div>
+                <table th:if="${!colorList.empty}" class="second-table">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr th:each="c:${colorList}">
+                        <td th:text="${c.name}"></td>
+                        <td>
+                            <a th:href="@{/admin/colorForm(id=${c.colorId})}">Edit</a>
+                            <a th:href="@{/admin/deleteColor(id=${c.colorId})}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

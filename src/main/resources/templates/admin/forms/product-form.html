@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="">
+        <h1>Formulaire produit</h1>
+        <h3 th:text="${message}"></h3>
+        <div class="">
+            <form th:action="@{/admin/saveProduct}" method="post" th:object="${product}" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{productId}">
+                <input id="name" name="name" type="text" th:field="*{name}" class="" placeholder="Name">
+                <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                <input id="price" name="price" type="text" th:field="*{price}" class="" placeholder="Price">
+                <span class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+                <input style="height: 200px" name="description" type="text" th:field="*{description}"  placeholder="Description...">
+                <select name="typeProduct" th:field="*{typeProduct}">
+                    <option th:each="tp:${typeProductList}" th:text="${tp.name}" th:value="${tp.typeProductId}"></option>
+                </select>
+                <span class="error" th:if="${#fields.hasErrors('typeProduct')}" th:errors="*{typeProduct}"></span>
+                <select name="color" th:field="*{color}">
+                    <option th:each="c:${colorList}" th:text="${c.name}" th:value="${c.colorId}"></option>
+                </select>
+                <span class="error" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></span>
+                <input class="image-selector" name="image" type="file" multiple accept="image/png, image/jpeg" required>
+<!--                <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span>-->
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

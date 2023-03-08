@@ -1,0 +1,78 @@
+.admin-page-container {
+    width: 90%;
+    margin: auto;
+}
+
+.tables-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.tables-content {
+
+}
+
+.shared {
+    width: 30%;
+}
+
+.table-header {
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-header button {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 25%;
+    position: inherit;
+    right: 1px;
+}
+
+.category-table {
+    width: 100%;
+}
+
+.color-table {
+    width: 100%;
+}
+
+.typearticle-table {
+    width: 100%;
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.search-form {
+    display: inline-block;
+    width: 30%;
+    margin: 0;
+}
+
+.search-form button {
+    width: 20%;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.create-btn {
+    width: 10%;
+    background-color: #1f325b;
+    padding: 12px;
+    border-radius: 10px;
+    position: absolute;
+    right: 1px;
+    bottom: 10px
+}
+
+.create-btn a{
+    color: white;
+}

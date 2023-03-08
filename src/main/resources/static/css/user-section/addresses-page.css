@@ -1,0 +1,48 @@
+.address-page-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-add-btn {
+    width: 10%;
+    background-color: #1f325b;
+    padding: 12px;
+    border-radius: 10px;
+    position: inherit;
+    right: 1px;
+    bottom: 10px;
+}
+
+.address-card {
+    text-align: center;
+    color: #1f325b;
+}
+
+.address-btn {
+    border-radius: 20px;
+    margin: 7px;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.address-btn a {
+    color: white;
+}
+
+.address-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.address-input{
+
+}
+

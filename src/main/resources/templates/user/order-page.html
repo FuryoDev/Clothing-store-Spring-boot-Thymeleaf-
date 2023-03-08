@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="orders-container">
+        <div class="commande-card card" th:object="${order}">
+            <h3 th:text="${order.orderId}"></h3>
+            <h2 th:text="${dateOfPurchase}"></h2>
+            <table class="second-table">
+                <tr>
+                    <th>Image</th>
+                    <th>Produit</th>
+                    <th>Taille</th>
+                    <th>Prix d'achat</th>
+                    <th>Quantité</th>
+                </tr>
+                <tr th:each="oi:${order.orderItems}">
+                    <td>
+                        <img th:src="@{${oi.product?.imagePath}}" class="img-name-data">
+                        <p th:if="${oi.product == null}">Image indisponible</p>
+                    </td>
+                    <td th:text="${oi.product?.name} ?: 'Ce produit a été supprimé'"></td>
+                    <td th:text="${oi.size}"></td>
+                    <td><p th:text="${oi.priceWhenBought}"></p></td>
+                    <td><p th:text="${oi.quantity}"></p></td>
+                </tr>
+            </table>
+<!--            <p class="commande-cost" th:text="${order.total}"></p>-->
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="banner">
+        <img th:src="@{/images/banner.jpg}" alt="" class="index-banner">
+        <h1 style="color: white" class="banner-title">Whatever</h1>
+    </div>
+    <h2 style="text-align: center">Our Latest Products</h2>
+    <div class="new-prod-container">
+        <div th:each="p:${newProducts}" class="card product-card index-card">
+            <a th:href="@{/shop/product-page(id=${p.productId})}" class="product-link">
+                <div class="product-card-img">
+                    <img th:src="@{${p.imagePath}}" class="product-img-resized">
+                </div>
+                <div class="product-card-data">
+                    <p th:text="${p.name}" class="product-card-title"></p>
+                    <p th:text="${p.price}" class="product-card-price"></p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

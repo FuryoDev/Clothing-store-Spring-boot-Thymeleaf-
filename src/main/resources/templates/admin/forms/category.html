@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="">
+        <h1>Formulaire Categorie</h1>
+        <h3 th:text="${message}"></h3>
+        <div class="">
+            <form th:action="@{/admin/saveCategory}" method="post" th:object="${category}" class="">
+                <input type="hidden" th:field="*{categoryId}">
+                <input id="name" name="name" type="text" th:field="*{name}" class="" placeholder="Category name">
+                <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                <label for="sizing"></label>
+                <select id="sizing" th:field="*{sizingType}">
+                    <option value="None">None</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Shoes">Shoes</option>
+                </select>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

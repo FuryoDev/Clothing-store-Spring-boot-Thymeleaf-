@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="stock-page">
+        <div class="stock-form">
+            <h1>Formulaire Stock</h1>
+            <form th:action="@{/admin/saveStock}" method="post" th:object="${stockDTO}">
+                <div th:each="stocks, itemStat : *{stocks}">
+                    <label th:text="*{stocks[__${itemStat.index}__].sizeName}"></label>
+                        <input type="hidden" th:field="*{stocks[__${itemStat.index}__].stockId}">
+                        <input th:field="*{stocks[__${itemStat.index}__].numberItemLeft}" type="number">
+                </div>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+        <div class="images-show">
+            <img th:src="@{/images/warehouse.jpg}" alt="">
+        </div>
+    </div>
+</div>
+</body>
+</html>

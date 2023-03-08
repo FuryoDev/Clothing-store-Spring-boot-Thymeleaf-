@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+        <form th:action="@{/user/saveAddress}" method="post" th:object="${address}" class="login-form">
+            <input type="text" placeholder="Rue" class="address-input" th:field="*{name}">
+            <input type="text" placeholder="Code Postal" class="address-input" th:field="*{zipCode}">
+            <input type="text" placeholder="Ville" class="address-input" th:field="*{city}">
+            <select class="dropdown" name="country" th:field="*{country}">
+                <option th:each="c:${countries}" th:text="${c.name}" th:value="${c.countryId}"></option>
+            </select>
+            <button class="user-btn" type="submit">Save</button>
+        </form>
+</div>
+</body>
+</html>

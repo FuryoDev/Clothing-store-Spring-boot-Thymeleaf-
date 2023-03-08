@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+<header th:fragment="myHeader">
+    <a th:href="@{/index}">
+        ICON
+    </a>
+    <nav>
+        <ul>
+            <li th:each="c:${categoriesNav}">
+                <a th:href="@{/shop/by-category(category=${c.name})}" th:text="${c.name}"></a>
+            </li>
+            <li>
+                <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/index}">Admin</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="icon-container">
+        <a th:href="@{/cart}">
+            <div class="icon">
+                <i class="fas fa-shopping-cart" style="left: 10px"></i>
+<!--                <span th:if="${cart.items == null or !cart?.items?.empty}" class="notify-cart"></span>-->
+            </div>
+        </a>
+        <a sec:authorize="!isAuthenticated()" th:href="@{/login-form}">Login</a>
+        <a sec:authorize="hasAnyAuthority('ADMIN', 'CLIENT')" th:href="@{/user/user-page}">
+            <div class="icon">
+                <i class="far fa-user-circle"></i>
+            </div>
+        </a>
+    </div>
+</header>
+</body>
+</html>

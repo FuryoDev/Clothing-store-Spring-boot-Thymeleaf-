@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="">
+        <h1>User Informations</h1>
+        <div class="">
+            <form th:action="@{/user/saveUserChange}" method="post" th:object="${userDTO}">
+                <input id="name" name="name" type="text" th:field="*{name}" class="" placeholder="Name">
+                <input id="lastname" name="lastname" type="text" th:field="*{lastName}" class="" placeholder="Last Name">
+                <input id="birthday" name="birthday" th:field="*{birthDay}" type="date" class="">
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

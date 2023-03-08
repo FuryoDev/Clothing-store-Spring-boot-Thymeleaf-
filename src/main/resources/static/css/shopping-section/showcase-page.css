@@ -1,0 +1,167 @@
+.products-filters {
+    padding: 27px 100px 50px;
+}
+
+.no-products {
+    width: 95%;
+    margin: auto;
+    text-align: center;
+}
+
+.no-prod-img {
+    margin: auto;
+    width: 25%;
+    padding-top: 70px;
+}
+
+.filters-form {
+    display: flex;
+}
+
+.showcase-list-inputs {
+    display: flex
+}
+
+.center-button {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 10px auto 10px auto;
+}
+
+.show-list {
+    list-style: none;
+}
+
+.color-input {
+    border-radius: 30px;
+}
+
+.color-filter {
+    list-style: none;
+
+}
+
+.color-filter label {
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: #1f325b;
+    padding: 10px;
+    border: 1px solid #1f325b;
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    display: inline-block;
+}
+
+.color-filter input {
+    display:none;
+    margin: 20px;
+}
+
+.color-filter input:checked + label {
+    border: 8px double #efeded;
+}
+
+.filter-size label {
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: #1f325b;
+    padding: 10px;
+    border: 1px solid #1f325b;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.filter-size input {
+    display: none;
+    margin: 20px;
+}
+
+.filter-size input:checked + label {
+    border: 2px solid #a2a2a2;
+    background: #efeded;
+}
+
+.filter-btn {
+    padding-bottom: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline #1f325b;
+    cursor: pointer;
+    display: inline-block;
+    color: #1f325b;
+    border: none;
+    background-color: white;
+}
+
+.apply-filter-btn{
+    width: 30%;
+    margin-top: 25px;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.card {
+    width: 15%;
+    border: none;
+    margin: 30px;
+    transition: 0.3s;
+}
+
+.index-card {
+    width: 20%;
+}
+
+.product-link {
+    display: block;
+    padding: 0;
+}
+
+.product-card {
+    cursor: pointer;
+    overflow-y: hidden;
+    border-radius: 15px
+}
+
+.product-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.product-card-img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+}
+
+.product-img-resized {
+    width: 100%;
+    height: auto;
+}
+
+.product-card-data {
+    text-align: center;
+    color: #1f325b;
+}
+
+.product-card-title {
+    text-transform: capitalize;
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 7.5px 0 7.5px 0;
+}
+
+.product-card-price {
+    letter-spacing: 1.5px;
+    padding: 7.5px 0 7.5px 0;
+}

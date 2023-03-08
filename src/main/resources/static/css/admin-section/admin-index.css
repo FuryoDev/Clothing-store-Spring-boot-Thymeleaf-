@@ -1,0 +1,34 @@
+.menu-display {
+    display: flex;
+    align-items: flex-start;
+
+}
+
+.menu {
+    margin: 50px;
+    padding: 15px;
+    width: 40%;
+    transition: all 0.4s;
+}
+
+.menu-link {
+    display: block;
+    padding: 0;
+}
+
+.menu-img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 350px;
+}
+
+.menu-img-resized {
+    width: 100%;
+    height: 100%;
+}
+
+.menu:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}

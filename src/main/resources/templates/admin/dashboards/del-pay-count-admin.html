@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>ADMIN LIVRAISON</h1>
+    <h3 th:text="${message}"></h3>
+    <div class="admin-page-container">
+        <div class="tables-container">
+            <div class="tables-content shared">
+                <div class="table-header">
+                    <h2>Pays</h2>
+                    <button class="create-btn">
+                        <a th:href="@{/admin/countryForm(id=null)}">Créer</a>
+                    </button>
+                </div>
+                <div class="" th:if="${countryList.empty}">
+                    <p class = "no-data">No Data in here</p>
+                </div>
+                <table th:if="${!countryList.empty}" class="second-table">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr th:each="c:${countryList}">
+                        <td th:text="${c.name}"></td>
+                        <td>
+                            <a th:href="@{/admin/countryForm(id=${c.countryId})}">Edit</a>
+                            <a th:href="@{/admin/deleteCountry(id=${c.countryId})}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-content shared">
+                <div class="table-header">
+                    <h2>Type Livraison</h2>
+                    <button class="create-btn"><a th:href="@{/admin/deliveryMethodForm(id=null)}">Créer</a></button>
+                </div>
+                <div class="" th:if="${deliveryMethodList.empty}">
+                    <p class = "no-data">No data in here</p>
+                </div>
+                <table th:if="${!deliveryMethodList.empty}" class="second-table">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr th:each="dm:${deliveryMethodList}">
+                        <td th:text="${dm.name}"></td>
+                        <td>
+                            <a th:href="@{/admin/deliveryMethodForm(id=${dm.deliveryMethodId})}">Edit</a>
+                            <a th:href="@{/admin/deleteDeliveryMethod(id=${dm.deliveryMethodId})}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="table-content shared">
+                <div class="table-header">
+                    <h2>Type Paiement</h2>
+                    <button class="create-btn"><a th:href="@{/admin/paymentTypeForm(id=null)}">Créer</a></button>
+                </div>
+                <div class="" th:if="${paymentTypeList.empty}">
+                    <p class = "no-data">No data in here</p>
+                </div>
+                <table th:if="${!paymentTypeList.empty}" class="second-table">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr th:each="tp:${paymentTypeList}">
+                        <td th:text="${tp.name}"></td>
+                        <td>
+                            <a th:href="@{/admin/paymentTypeForm(id=${tp.paymentTypeId})}">Edit</a>
+                            <a th:href="@{/admin/deletePaymentType(id=${tp.paymentTypeId})}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

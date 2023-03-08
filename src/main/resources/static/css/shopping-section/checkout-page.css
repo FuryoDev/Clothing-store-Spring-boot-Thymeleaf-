@@ -1,0 +1,37 @@
+.checkout-page-container{
+    margin: 20px;
+    display: flex;
+    flex-direction: inherit;
+    align-content: center;
+    justify-content: center;
+}
+
+.address-container{
+    width: 40%;
+}
+
+.check-details-container {
+    width: 40%;
+}
+
+.checkout-btn2 {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.checkout-detail{
+    display: grid;
+    margin: 20px;
+    width: 100%;
+    padding: 35px;
+}
+
+.detail-select {
+    padding: 15px;
+    border-radius: 30px;
+}
+
+.address-select {
+    width: 75%;
+    margin: 25px 0 0 0;
+}

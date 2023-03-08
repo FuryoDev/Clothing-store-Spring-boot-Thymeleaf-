@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/js/actions.js}"></script>
+
+</head>
+<body>
+<div layout:fragment="content">
+    <!--    FILTERS-->
+    <div class="products-filters">
+        <div class="center-button">
+            <button class="filter-btn" th:onclick="toggleFilters()">
+                <h2 id="filter-title" class="filter-title">Afficher les filtres↓</h2>
+            </button>
+        </div>
+        <form th:action="@{/shop/by-filters(category=${category})}" method="post" th:object="${productFiltersDTO}" id="form-filters" style="display: none">
+            <h2>Couleurs</h2>
+            <ul class="showcase-list-inputs">
+                <li th:each="c:${colorList}" class="color-filter">
+                    <input type="radio" th:field="*{colorId}" th:value="${c.colorId}" th:id="${c.name}" name="color"/>
+                    <label th:for="${c.name}" class="color-input" th:style="'background-color: '+@{${c.colorCode}}+';'"></label>
+                </li>
+            </ul>
+
+            <h2>Quel genre de produits</h2>
+
+            <ul class="showcase-list-inputs">
+                <li th:each="tp:${typeProdList}" class="filter-size show-list">
+                    <input th:id="${tp.name}" th:value="${tp.typeProductId}" th:field="*{typeProductId}"
+                           type="radio" name="typeProduct">
+                    <label th:for="${tp.name}" th:text="${tp.name}"></label>
+                </li>
+            </ul>
+            <button type="submit" class="apply-filter-btn">Appliquer les filtres</button>
+        </form>
+    </div>
+
+    <!--    SHOWCASE-->
+    <div class="no-products" th:if="${products.empty}">
+        <h2>No Products found</h2>
+        <img class="no-prod-img" th:src="@{/images/no-products.png}" alt="">
+    </div>
+
+
+    <div class="cards-container">
+        <div th:each="p:${products}" class="card product-card">
+            <a th:href="@{/shop/product-page(id=${p.productId})}" class="product-link">
+                <div class="product-card-img">
+                    <img th:src="@{${p.imagePath}}" class="product-img-resized">
+<!--                    <img th:src="@{/images/products/1652310000387.jpg}" class="product-img-resized">-->
+                </div>
+                <div class="product-card-data">
+                    <p th:text="${p.name}" class="product-card-title"></p>
+                    <p th:text="${p.price}" class="product-card-price"></p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

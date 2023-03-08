@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div>
+        <form th:action="@{/user/validate-checkout}" th:object="${checkoutDTO}" method="post"
+              class="checkout-page-container">
+            <input type="hidden" th:field="*{cart}" th:value="${checkoutDTO.cart}">
+            <div class="address-container" th:field="*{address}">
+                <h2>Shipping Address</h2>
+                <input type="text" placeholder="Addresse" class="login-input" name="address" th:field="*{address.name}">
+                <input type="text" placeholder="Code Postal" class="login-input" name="codePostal" th:field="*{address.zipCode}">
+                <input type="text" placeholder="Ville" class="login-input" name="ville" th:field="*{address.city}">
+                <select name="country" th:field="*{address.country}" class="address-select">
+                    <option th:each="c:${countryList}" th:text="${c.name}" th:value="${c.countryId}" placeholder="Pays"></option>
+                </select>
+            </div>
+            <div class="check-details-container">
+                <h2>Payment & Delivery</h2>
+                <div class="checkout-detail">
+                    <select name="deliveryMethod" th:field="*{deliveryMethod}" class="detail-select">
+                        <option th:each="d:${deliveryMethods}" th:text="${d.name}" th:value="${d.deliveryMethodId}">
+                            Paypal
+                        </option>
+                    </select>
+                </div>
+                <div class="checkout-detail">
+                    <select name="deliveryMethod" th:field="*{paymentType}" class="detail-select">
+                        <option th:each="p:${paymentTypeList}" th:text="${p.name}" th:value="${p.paymentTypeId}">
+                            Paypal
+                        </option>
+                    </select>
+                </div>
+                <button type="submit" class="checkout-btn2">Validate Checkout</button>
+            </div>
+
+            <!--        <div th:each="a:${addressList}">-->
+            <!--            <p>Placeholder selection addresse card</p>-->
+            <!--        </div>-->
+        </form>
+    </div>
+</div>
+</body>
+</html>

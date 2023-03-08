@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>ADMIN STOCK</h1>
+    <h3 th:text="${message}"></h3>
+    <div class="admin-page-container">
+        <div class="buttons-container">
+            <!--            <form class="search-form" th:action="@{/admin/article-admin}" method="get">-->
+            <!--                <label>Mot clé</label>-->
+            <!--                <input type="text" name="searchInput" th:value="${searchInput}">-->
+            <!--                <button type="submit">Chercher</button>-->
+            <!--            </form>-->
+            <button class="create-btn"><a th:href="@{/admin/product-form(id=null)}">Créer</a></button>
+        </div>
+        <div class="" th:if="${productList.empty}">
+            <p class = "no-data">No data in here</p>
+        </div>
+        <table th:if="${!productList.empty}" class="second-table">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Type</th>
+                <th>Catégorie</th>
+                <th>Couleur</th>
+                <th>Actions</th>
+            </tr>
+            <tr th:each="p:${productList}" class="second-table">
+                <td th:text="${p.productId}"></td>
+                <td th:text="${p.name}"></td>
+                <td th:text="${p.price}"></td>
+                <td th:text="${p.typeProduct.name}"></td>
+                <td th:text="${p.typeProduct.category.name}"></td>
+                <td th:text="${p.color.name}"></td>
+                <td>
+                    <a th:href="@{/admin/stock-form(id=${p.productId})}">Delete</a>
+                </td>
+            </tr>
+            <tr class="" th:if="${productList.empty}">
+                <span>No Data found</span>
+            </tr>
+        </table>
+        <ul>
+            <!--        Active est une classe boostrap, trouver autre chose ou utliser bootstrap-->
+            <li th:each="page,status:${pages}">
+                <a th:href="@{/admin/article-admin(page=${status.index}, searchInput=${searchInput})}"
+                   th:text="${status.index}"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
